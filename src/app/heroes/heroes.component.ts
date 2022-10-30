@@ -13,7 +13,7 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService, private messageService: MessageService) { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.getHeroes();
@@ -24,25 +24,18 @@ export class HeroesComponent implements OnInit {
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  selectedHero?: Hero;
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
-
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
     this.heroService.addHero({ name } as Hero)
       .subscribe(hero => {
-        this.heroes.push(hero);
+        this.heroes.push(hero); /**Mettre les données à jour dans le composant */
       });
   }
 
   delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero.id).subscribe(); 
-    /**If you neglect to subscribe(), the service can't send the delete request to the server. As a rule, an Observable does nothing until something subscribes. */
+    this.heroes = this.heroes.filter(h => h !== hero); /**Mettre les données à jour dans le composant en supposant que tout se passera bein coté serveur */
+    this.heroService.deleteHero(hero.id).subscribe(); /**Si vous négligez de subscribe(), le service ne peut pas envoyer la demande de suppression au serveur. En règle générale, un Observable ne fait rien jusqu’à ce que quelque chose s’abonne. */
   }
 
 }

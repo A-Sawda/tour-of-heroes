@@ -14,9 +14,9 @@ export class HeroDetailComponent implements OnInit {
   hero?: Hero | undefined;
 
   constructor(
-    private route: ActivatedRoute, /**The ActivatedRoute holds information about the route to this instance of the HeroDetailComponent. This component is interested in the route's parameters extracted from the URL. The "id" parameter is the id of the hero to display. */
-    private heroService: HeroService, /**The HeroService gets hero data from the remote server and this component uses it to get the hero-to-display. */
-    private location: Location /**The location is an Angular service for interacting with the browser. This service lets you navigate back to the previous view. */
+    private route: ActivatedRoute, /**L’ActivatedRoute contient des informations sur la route vers cette instance de HeroDetailComponent. Ce composant s’intéresse aux paramètres de la route extraite de l’URL. Le paramètre « id » est l’identifiant du héros à afficher. */
+    private heroService: HeroService, /**Le HeroService obtient les données du héro du serveur distant et ce composant l'utilise pour savoir quel héro afficher. */
+    private location: Location /**L’emplacement est un service Angular pour interagir avec le navigateur. Ce service vous permet de revenir à la vue précédente. */
   ) { }
 
   ngOnInit(): void {
