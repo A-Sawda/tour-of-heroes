@@ -24,11 +24,15 @@ export class HeroesComponent implements OnInit {
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
+  add(sex: string,firstName: string,lastName: string,job: string): void {
+    sex = sex.trim();
+    firstName = firstName.trim();
+    lastName = lastName.trim();
+    job = job.trim();
+    if (!sex || !firstName || !lastName || !job) { return; }
+    this.heroService.addHero({ sex, firstName, lastName, job } as unknown as Hero)
       .subscribe(hero => {
+        console.log('hero ajouté', hero)
         this.heroes.push(hero); /**Mettre les données à jour dans le composant */
       });
   }

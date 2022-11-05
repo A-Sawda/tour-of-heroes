@@ -1,12 +1,19 @@
 <div id="search-component">
 
-    <label for="search-box">Recherche d'héro</label>
+    <label for="search-box">Rechercher un employé</label>
     <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+    <!--
+    <div class="search">
+        <label for="search" style="flex: 1;"><i class="fas fa-search"></i></label>
+        <input id="search" type="search" [formControl]="search" placeholder="Rechercher..." style="flex: 100;" />
+    </div>
+    -->
 
     <ul class="search-result">
         <li *ngFor="let hero of heroes$ | async">
             <a routerLink="/detail/{{hero.id}}">
-                {{hero.name}}
+                {{hero.firstName}} {{hero.lastName}}
             </a>
         </li>
     </ul>

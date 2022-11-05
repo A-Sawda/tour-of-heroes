@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
+import { JobType, JobTypeUi } from './constants/jobTypeUi';
+import { SexType, SexTypeUi } from './constants/sexTypeUi';
 import { Hero } from './hero';
 
 @Injectable({
@@ -8,15 +10,12 @@ import { Hero } from './hero';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 12, name: 'Abdoulaye' },
-      { id: 20, name: 'Fatou' },
-      { id: 14, name: 'Abdoul Fataye' },
-      { id: 15, name: 'Zeilata' },
-      { id: 16, name: 'Mariame' },
-      { id: 17, name: 'Sawda' },
-      { id: 18, name: 'Abdoul Qadir' },
-      { id: 13, name: 'Aisha' },
-      { id: 19, name: 'Mohamed' }
+      { id: 10, sex:SexTypeUi[SexType.MASCULIN].label, lastName:'Idriss', firstName: 'Noor', job:JobTypeUi[JobType.COACH].label },
+      { id: 10, sex:SexTypeUi[SexType.FEMININ].label, lastName:'Abdoul', firstName: 'Sabira', job:JobTypeUi[JobType.COMMUNICATION].label  },
+      { id: 10, sex:SexTypeUi[SexType.FEMININ].label, lastName:'Seydou', firstName: 'Amina', job:JobTypeUi[JobType.HOTESSE].label  },
+      { id: 10, sex:SexTypeUi[SexType.FEMININ].label, lastName:'Djibril', firstName: 'Jamila', job:JobTypeUi[JobType.MENAGE].label  },
+      { id: 10, sex:SexTypeUi[SexType.MASCULIN].label, lastName:'Nasser', firstName: 'Ibrahim', job:JobTypeUi[JobType.COACH].label },
+      { id: 10, sex:SexTypeUi[SexType.MASCULIN].label, lastName:'Issa', firstName: 'Youssouf', job:JobTypeUi[JobType.COMMUNICATION].label  },
     ];
     return { heroes };
   }

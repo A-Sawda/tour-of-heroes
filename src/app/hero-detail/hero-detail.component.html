@@ -1,10 +1,19 @@
 <div *ngIf="hero">
 
-    <h2>{{hero.name | uppercase}} Détails</h2>
+    <h2>{{hero.lastName | uppercase}} Détails</h2>
     <div><span>Identifiant: </span>{{hero.id}}</div>
     <div>
-        <label for="hero-name">Nom du héro: </label>
-        <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+        <label for="hero-sex">Sexe de l'employé: </label>
+        <input id="hero-sex" [(ngModel)]="hero.sex" placeholder="sexe">
+
+        <label for="hero-lastName">Nom de l'employé: </label>
+        <input id="hero-lastName" [(ngModel)]="hero.lastName" placeholder="nom">
+
+        <label for="hero-firstName">Prénom de l'employé: </label>
+        <input id="hero-firstName" [(ngModel)]="hero.firstName" placeholder="prénom">
+
+        <label for="hero-job">Fonction de l'employé: </label>
+        <input id="hero-job" [(ngModel)]="hero.job" placeholder="fonction">
     </div>
     <button type="button" (click)="goBack()">Retour</button>
     <button type="button" (click)="save()">Sauvegarder</button>

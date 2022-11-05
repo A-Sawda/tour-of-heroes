@@ -1,7 +1,7 @@
 <h2>Top des héros</h2>
 <div class="heroes-menu">
     <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
-        {{hero.name}}
+        {{hero.firstName}} {{hero.lastName}}
     </a>
 </div>
 
