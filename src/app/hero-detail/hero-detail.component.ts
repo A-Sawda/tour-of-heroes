@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { Location } from '@angular/common';
+import { JobTypeUi } from '../constants/jobTypeUi';
 
 @Component({
   selector: 'app-hero-detail',
@@ -35,6 +36,8 @@ export class HeroDetailComponent implements OnInit {
 
   save(): void {
     if (this.hero) {
+      this.hero.fullName=this.hero.firstName + ' ' + this.hero.lastName;
+      this.hero.status=JobTypeUi[this.hero.job].status
       this.heroService.updateHero(this.hero)
         .subscribe(() => this.goBack());
     }

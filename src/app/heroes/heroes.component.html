@@ -1,31 +1,9 @@
 <h2>Liste des employés</h2>
-<!--<ul class="heroes">
-    <li *ngFor="let hero of heroes">
-        <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-            <span class="badge">{{hero.id}}</span>
-            <span class="name">{{hero.name}}</span>
-        </button>
-    </li>
-</ul>-->
-<div>
-    <label for="new-hero-sex">Sex de l'employé: </label>
-    <input id="new-hero-sex" #sex />
-    <label for="new-hero-lastName">Nom de l'employé: </label>
-    <input id="new-hero-lastName" #lastName />
-    <label for="new-hero-firstName">Prénom de l'employé: </label>
-    <input id="new-hero-firstName" #firstName />
-    <label for="new-hero-job">Fonction de l'employé: </label>
-    <input id="new-hero-job" #job />
-    <!-- (click) passes input value to add() and then clears the input -->
-    <button type="button" class="add-button" (click)="add(sex.value,firstName.value,lastName.value,job.value); sex.value=''; lastName.value=''; firstName.value=''; job.value='' ">
-        Ajouter un hero
-    </button>
-</div>
 <ul class="heroes">
     <li *ngFor="let hero of heroes">
         <a routerLink="/detail/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span> {{hero.firstName}} {{hero.lastName}}
+            <span class="badge">{{hero.id}}</span> {{hero.fullName}}
         </a>
-        <button type="button" class="delete" title="delete hero" (click)="delete(hero)">x</button>
+        <button type="button" class="delete" title="supprimer l'employé" (click)="delete(hero)">x</button>
     </li>
 </ul>

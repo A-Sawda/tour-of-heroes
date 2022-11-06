@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +9,9 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'Tour des héros';
+  title = 'FAuS';
+  route:string='';
+  updateRoute(routeName:string): void {
+    this.route=routeName;
+  }
 }

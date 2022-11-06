@@ -1,7 +1,25 @@
 <h1>{{title}}</h1> <!-- Angular's interpolation binding syntax -->
 <nav>
-  <a routerLink="/dashboard">Tableau de bord</a>
-  <a routerLink="/heroes">Les héros</a>
+  <a routerLink="/dashboard" 
+  (click)="updateRoute('dashboard')"
+  [class.selected]="route === 'dashboard'">Tableau de bord</a>
+  <a routerLink="/heroes" 
+  (click)="updateRoute('heroes')"
+  [class.selected]="route === 'heroes'">Liste des employés</a>
+  <a routerLink="/new-hero" 
+  (click)="updateRoute('new-hero')"
+  [class.selected]="route === 'new-hero'">Ajouter un employé</a>
+  <a routerLink="/search-hero" 
+  (click)="updateRoute('search-hero')"
+  [class.selected]="route === 'search-hero'">Recherche</a>
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
+<!--<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+        <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+            <span class="badge">{{hero.id}}</span>
+            <span class="name">{{hero.name}}</span>
+        </button>
+    </li>
+</ul>-->

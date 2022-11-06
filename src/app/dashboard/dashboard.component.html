@@ -1,7 +1,7 @@
-<h2>Top des héros</h2>
+<h2>Cadres de la société</h2>
 <div class="heroes-menu">
     <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
-        {{hero.firstName}} {{hero.lastName}}
+        {{hero.fullName}}
     </a>
 </div>
 
