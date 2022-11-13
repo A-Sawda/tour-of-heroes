@@ -1,15 +1,29 @@
 <h2>Ajout d'un employé</h2>
 <div>
-    <label for="new-hero-sex">Sex: </label>
-    <input id="new-hero-sex" #sex />
+    <label for="new-hero-sex">Sexe:</label>
+    <select #sex id="new-hero-sex">
+        <option value="">--Choississez une option--</option>
+        <option value="{{sexType.FEMININ}}" >{{sexTypeUi[sexType.FEMININ].label}}</option>
+        <option value="{{sexType.MASCULIN}}">{{sexTypeUi[sexType.MASCULIN].label}}</option>
+    </select>
     <label for="new-hero-lastName">Nom: </label>
     <input id="new-hero-lastName" #lastName />
     <label for="new-hero-firstName">Prénom: </label>
     <input id="new-hero-firstName" #firstName />
     <label for="new-hero-job">Fonction: </label>
-    <input id="new-hero-job" #job />
+    <select #job id="new-hero-job">
+        <option value="">--Choississez une option--</option>
+        <option value="{{jobType.COMPTABLE}}">{{jobTypeUi[jobType.COMPTABLE].label}}</option>
+        <option value="{{jobType.COACH}}">{{jobTypeUi[jobType.COACH].label}}</option>
+        <option value="{{jobType.COMMUNICATION}}">{{jobTypeUi[jobType.COMMUNICATION].label}}</option>
+        <option value="{{jobType.ASSISTANTDEDIRECTION}}">{{jobTypeUi[jobType.ASSISTANTDEDIRECTION].label}}</option>
+        <option value="{{jobType.HOTESSE}}">{{jobTypeUi[jobType.HOTESSE].label}}</option>
+        <option value="{{jobType.MENAGE}}">{{jobTypeUi[jobType.MENAGE].label}}</option>
+        <option value="{{jobType.GARDIEN}}">{{jobTypeUi[jobType.GARDIEN].label}}</option>
+    </select>
     <!-- (click) passes input value to add() and then clears the input -->
-    <button type="button" class="add-button" (click)="add(sex.value,firstName.value,lastName.value,job.value); sex.value=''; lastName.value=''; firstName.value=''; job.value='' ">
+    <button type="button" class="add-button"
+        (click)="add(sex.value,firstName.value,lastName.value,job.value); sex.value=''; lastName.value=''; firstName.value=''; job.value='' ">
         Ajouter
     </button>
 </div>

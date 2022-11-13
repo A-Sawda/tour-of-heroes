@@ -11,10 +11,12 @@
      background-color: #42545C;
    }
   
-   input {
+   input, select {
      display: block;
      width: 100%;
      padding: .5rem;
      margin: 1rem 0;
      box-sizing: border-box;
    }
+
+   

@@ -7,9 +7,13 @@ export interface JobTypeUi {
   
   export enum JobType{
       HOTESSE='HOTESSE',
+      COMPTABLE='COMPTABLE',
       COMMUNICATION='COMMUNICATION',
     COACH='COACH',
-  MENAGE='MENAGE'}
+  MENAGE='MENAGE',
+  DG='DG',
+  GARDIEN='GARDIEN',
+  ASSISTANTDEDIRECTION='ASSISTANTDEDIRECTION'}
   
   
   export const JobTypeUi: {[name: string]: JobTypeUi} = {};
@@ -28,5 +32,21 @@ export interface JobTypeUi {
   };
   JobTypeUi[JobType.MENAGE]= {
     label: "Femme de ménage",
+    status:"Non cadre"
+  };
+  JobTypeUi[JobType.COMPTABLE]= {
+    label: "Comptable",
+    status:"Cadre"
+  };
+  JobTypeUi[JobType.DG]= {
+    label: "Directrice Générale",
+    status:"Cadre"
+  };
+  JobTypeUi[JobType.GARDIEN]= {
+    label: "Gardien",
+    status:"Non cadre"
+  };
+  JobTypeUi[JobType.ASSISTANTDEDIRECTION]= {
+    label: "Assistant de direction",
     status:"Non cadre"
   };

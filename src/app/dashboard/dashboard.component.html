@@ -1,8 +1,15 @@
-<h2>Cadres de la société</h2>
+<!--<h2>Cadres de la société</h2>
 <div class="heroes-menu">
     <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
         {{hero.fullName}}
     </a>
+</div>-->
+<h2>Statistiques de l'entreprise</h2>
+<div class="highcharts">
+    <div id="containerStatus" style="flex:1"></div>
+    <div id="containerJob"></div>
 </div>
-
-<app-hero-search></app-hero-search>
+<div class="highcharts">
+    <div id="containerStatusC"></div>
+    <div id="containerStatusNC"></div>
+</div>

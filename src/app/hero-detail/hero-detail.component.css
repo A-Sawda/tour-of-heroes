@@ -1,13 +1,13 @@
 /* HeroDetailComponent's private CSS styles */
-label {
-    color: #435960;
-    font-weight: bold;
-}
 
+  
 input {
-    font-size: 1em;
+    display: block;
+    width: 100%;
     padding: .5rem;
-}
+    margin: 1rem 0;
+    box-sizing: border-box;
+  }
 
 button {
     padding: 1rem;

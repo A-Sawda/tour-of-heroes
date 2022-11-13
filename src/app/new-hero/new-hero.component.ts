@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { JobTypeUi } from '../constants/jobTypeUi';
+import { JobType, JobTypeUi } from '../constants/jobTypeUi';
+import { SexType, SexTypeUi } from '../constants/sexTypeUi';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 
@@ -12,11 +13,14 @@ import { HeroService } from '../hero.service';
 export class NewHeroComponent implements OnInit {
 
   heroes: Hero[] = [];
+  public jobType = JobType;
+  public jobTypeUi = JobTypeUi;
+  public sexType = SexType;
+  public sexTypeUi = SexTypeUi;
 
-  constructor(private heroService: HeroService, private route:ActivatedRoute) { }
+  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-    console.log('route',this.route.component?.name);
     this.getHeroes();
   }
 
@@ -25,15 +29,18 @@ export class NewHeroComponent implements OnInit {
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  add(sex: string,firstName: string,lastName: string,job: string): void {
+  add(sex: string, firstName: string, lastName: string, job: string): void {
+    if (!sex || !firstName || !lastName || !job) {
+      this.heroService.addHeroError();
+      return;
+    }
     sex = sex.trim();
     firstName = firstName.trim();
     lastName = lastName.trim();
-    const fullName=firstName + ' '+lastName;
+    const fullName = firstName + ' ' + lastName;
     job = job.trim();
-    const status= JobTypeUi[job].status;
-    if (!sex || !firstName || !lastName || !job) { return; }
-    this.heroService.addHero({ sex, firstName, lastName,fullName, job,status } as Hero)
+    const status = JobTypeUi[job].status;
+    this.heroService.addHero({ sex, firstName, lastName, fullName, job, status } as Hero)
       .subscribe(hero => {
         console.log('hero ajouté', hero)
         this.heroes.push(hero); /**Mettre les données à jour dans le composant */

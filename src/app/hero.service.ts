@@ -31,7 +31,7 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
-        tap(_ => this.log('Héros récupérés')),
+        tap(_ => this.log('Liste des employés récupérée')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
       );
   }
@@ -63,7 +63,7 @@ export class HeroService {
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
-      tap(_ => this.log(`Héro récupéré id=${id}`)),
+      tap(_ => this.log(`Détails sur l'employé récupérés id=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
     );
   }
@@ -74,15 +74,19 @@ export class HeroService {
   /** PUT: update the hero on the server */
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this.log(`Héro mis à jour id=${hero.id}`)),
+      tap(_ => this.log(`Données sur l'employé id=${hero.id} mises à jour`)),
       catchError(this.handleError<any>('updateHero'))
     );
+  }
+
+  addHeroError(){
+    this.log('Veuillez remplir tous les champs pour ajouter un employé')
   }
 
   /** POST: add a new hero to the server */
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this.log(`Héro ajouté w/ id=${newHero.id}`)),
+      tap((newHero: Hero) => this.log(`Employé ajouté w/ id=${newHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
     );
   }
@@ -92,7 +96,7 @@ export class HeroService {
     const url = `${this.heroesUrl}/${id}`;
 
     return this.http.delete<Hero>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`Héro supprimé id=${id}`)),
+      tap(_ => this.log(`Employé supprimé id=${id}`)),
       catchError(this.handleError<Hero>('deleteHero'))
     );
   }
@@ -106,8 +110,8 @@ export class HeroService {
     //console.log('url',`${this.heroesUrl}/?firstName=${term}&lastName=${term}`)
     return this.http.get<Hero[]>(`${this.heroesUrl}/?fullName=${term}`).pipe(
       tap(x => x.length ?
-        this.log(`Héros correspondants à "${term}"`) :
-        this.log(`Aucun héro ne correspond à "${term}"`)),
+        this.log(`Employés correspondants à "${term}"`) :
+        this.log(`Aucun employé ne correspond à "${term}"`)),
       catchError(this.handleError<Hero[]>('searchHeroes', []))
     );
   }

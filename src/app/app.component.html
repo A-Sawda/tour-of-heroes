@@ -1,21 +1,29 @@
-<h1>{{title}}</h1> <!-- Angular's interpolation binding syntax -->
 <nav>
-  <a routerLink="/dashboard" 
-  (click)="updateRoute('dashboard')"
-  [class.selected]="route === 'dashboard'">Tableau de bord</a>
-  <a routerLink="/heroes" 
-  (click)="updateRoute('heroes')"
-  [class.selected]="route === 'heroes'">Liste des employés</a>
-  <a routerLink="/new-hero" 
-  (click)="updateRoute('new-hero')"
-  [class.selected]="route === 'new-hero'">Ajouter un employé</a>
-  <a routerLink="/search-hero" 
-  (click)="updateRoute('search-hero')"
-  [class.selected]="route === 'search-hero'">Recherche</a>
+    <h1 style="display: inline;" routerLink="/home">{{title}}</h1> <!-- Angular's interpolation binding syntax -->
+   
+    <a class=" class" routerLink="/dashboard">Tableau de
+        bord</a>
+    <a class=" class" routerLink="/heroes">Liste des employés</a>
+    <a class=" class" routerLink="/new-hero">Ajouter un
+        employé</a>
+    <div id="search-component" style="display: inline;flex: 2;align-self: flex-end;">
+
+        <input #searchBox id="search-box" (input)="search(searchBox.value)" 
+        placeholder="Rechercher un employé par son nom ou prénom..." />
+
+        <ul class="search-result">
+            <li *ngFor="let hero of heroes$ | async">
+                <a routerLink="/detail/{{hero.id}}">
+                    {{hero.fullName}}
+                </a>
+            </li>
+        </ul>
+
+    </div>
 </nav>
 <router-outlet></router-outlet>
-<app-messages></app-messages>
-<!--<ul class="heroes">
+<!--<app-messages></app-messages>
+<ul class="heroes">
     <li *ngFor="let hero of heroes">
         <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
             <span class="badge">{{hero.id}}</span>

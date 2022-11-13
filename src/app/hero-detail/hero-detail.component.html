@@ -1,7 +1,6 @@
 <div *ngIf="hero">
 
     <h2>{{hero.lastName | uppercase}} Détails</h2>
-    <div><span>Identifiant: </span>{{hero.id}}</div>
     <div>
         <label for="hero-sex">Sexe de l'employé: </label>
         <input id="hero-sex" [(ngModel)]="hero.sex" placeholder="sexe">
