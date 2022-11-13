@@ -11,9 +11,9 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, /**Le chemin par défaut */
   { path: 'home', component: HomeComponent },
   { path: 'dashboard', component: DashboardComponent },
-  { path: 'heroes', component: HeroesComponent },
+  { path: 'employees', component: HeroesComponent },
   { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'new-hero', component: NewHeroComponent },
+  { path: 'new-employee', component: NewHeroComponent },
 ];
 
 @NgModule({
