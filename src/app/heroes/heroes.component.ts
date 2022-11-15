@@ -25,17 +25,16 @@ export class HeroesComponent implements OnInit {
       .subscribe(heroes => this.heroes = heroes);
   }
 
-  add(sex: string,firstName: string,lastName: string,job: string): void {
+  add(sex: string, firstName: string, lastName: string, job: string): void {
     sex = sex.trim();
     firstName = firstName.trim();
     lastName = lastName.trim();
-    const fullName=firstName + ' '+lastName;
+    const fullName = firstName + ' ' + lastName;
     job = job.trim();
-    const status= JobTypeUi[job].status;
+    const status = JobTypeUi[job].status;
     if (!sex || !firstName || !lastName || !job) { return; }
-    this.heroService.addHero({ sex, firstName, lastName,fullName, job,status } as Hero)
+    this.heroService.addHero({ sex, firstName, lastName, fullName, job, status } as Hero)
       .subscribe(hero => {
-        console.log('hero ajouté', hero)
         this.heroes.push(hero); /**Mettre les données à jour dans le composant */
       });
   }

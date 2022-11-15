@@ -1,13 +1,17 @@
 /* HeroDetailComponent's private CSS styles */
 
-  
-input {
-    display: block;
-    width: 100%;
+
+input,
+select {
+    display: inline;
     padding: .5rem;
     margin: 1rem 0;
     box-sizing: border-box;
-  }
+}
+
+label {
+    margin: 2em;
+}
 
 button {
     padding: 1rem;

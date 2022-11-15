@@ -1,10 +1,10 @@
 
 export interface Hero {
     id: number;
-    sex:string;
+    sex: string;
     firstName: string;
-    lastName:string;
-    fullName?:string;
-    job:string;
-    status:string
+    lastName: string;
+    fullName?: string;
+    job: string;
+    status: string
 }

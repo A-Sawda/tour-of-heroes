@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { JobType, JobTypeUi } from './constants/jobTypeUi';
-import { SexType, SexTypeUi } from './constants/sexTypeUi';
+import { SexType } from './constants/sexTypeUi';
 import { Hero } from './hero';
 
 @Injectable({
@@ -10,84 +10,85 @@ import { Hero } from './hero';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { 
-        id: 9, 
-        sex:SexTypeUi[SexType.FEMININ].label, 
-        lastName:'Abdoulaye', 
-        firstName: 'Sawda', 
-        fullName:'Sawda Abdoulaye',
-        job:JobTypeUi[JobType.DG].label , 
+      {
+        id: 9,
+        sex: SexType.FEMININ,
+        lastName: 'Abdoulaye',
+        firstName: 'Sawda',
+        fullName: 'Sawda Abdoulaye',
+        job: JobType.DG,
         status: JobTypeUi[JobType.DG].status,
       },
-      { 
-        id: 10, 
-        sex:SexTypeUi[SexType.MASCULIN].label, 
-        lastName:'Idriss',
-        firstName: 'Noor', 
-        fullName:'Noor Idriss',
-        job:JobTypeUi[JobType.GARDIEN].label , 
+      {
+        id: 10,
+        sex: SexType.MASCULIN,
+        lastName: 'Idriss',
+        firstName: 'Noor',
+        fullName: 'Noor Idriss',
+        job: JobType.GARDIEN,
         status: JobTypeUi[JobType.GARDIEN].status,
       },
-      { 
-        id: 11, 
-        sex:SexTypeUi[SexType.FEMININ].label, 
-        lastName:'Abdoul', 
-        firstName: 'Samira', 
-        fullName:'Samira Abdoul',
-        job:JobTypeUi[JobType.COACH].label , 
-        status: JobTypeUi[JobType.COACH].status, 
+      {
+        id: 11,
+        sex: SexType.FEMININ,
+        lastName: 'Abdoul',
+        firstName: 'Samira',
+        fullName: 'Samira Abdoul',
+        job: JobType.COACH,
+        status: JobTypeUi[JobType.COACH].status,
       },
-      { 
-        id: 12, 
-        sex:SexTypeUi[SexType.FEMININ].label, 
-        lastName:'Moussa', 
-        firstName: 'Amina', 
-        fullName:'Amina Moussa', 
-        job:JobTypeUi[JobType.HOTESSE].label  , 
+      {
+        id: 12,
+        sex: SexType.FEMININ,
+        lastName: 'Moussa',
+        firstName: 'Amina',
+        fullName: 'Amina Moussa',
+        job: JobType.HOTESSE,
         status: JobTypeUi[JobType.HOTESSE].status,
       },
-      { 
-        id: 13, 
-        sex:SexTypeUi[SexType.FEMININ].label, 
-        lastName:'Ahmed', 
-        firstName: 'Yousra', 
-        fullName:'Yousra Ahmed', 
-        job:JobTypeUi[JobType.MENAGE].label,
+      {
+        id: 13,
+        sex: SexType.FEMININ,
+        lastName: 'Ahmed',
+        firstName: 'Yousra',
+        fullName: 'Yousra Ahmed',
+        job: JobType.MENAGE,
         status: JobTypeUi[JobType.MENAGE].status,
       },
-      { 
-        id: 14, 
-        sex:SexTypeUi[SexType.MASCULIN].label, 
-        lastName:'Diallo', 
-        firstName: 'Ibrahim', 
-        fullName:'Ibrahim Diallo', 
-        job:JobTypeUi[JobType.COMPTABLE].label, 
+      {
+        id: 14,
+        sex: SexType.MASCULIN,
+        lastName: 'Diallo',
+        firstName: 'Ibrahim',
+        fullName: 'Ibrahim Diallo',
+        job: JobType.COMPTABLE,
         status: JobTypeUi[JobType.COMPTABLE].status,
       },
-      { id: 15, 
-        sex:SexTypeUi[SexType.MASCULIN].label, 
-        lastName:'Imran', 
-        firstName: 'Youssouf', 
-        fullName:'Youssouf Imran', 
-        job:JobTypeUi[JobType.COMMUNICATION].label , 
-        status: JobTypeUi[JobType.COMMUNICATION].status, 
+      {
+        id: 15,
+        sex: SexType.MASCULIN,
+        lastName: 'Imran',
+        firstName: 'Youssouf',
+        fullName: 'Youssouf Imran',
+        job: JobType.COMMUNICATION,
+        status: JobTypeUi[JobType.COMMUNICATION].status,
       },
-      { 
-        id: 16, 
-        sex:SexTypeUi[SexType.MASCULIN].label, 
-        lastName:'Coulibaly', 
-        firstName: 'Nadia', 
-        fullName:'Nadia Coulibaly',
-        job:JobTypeUi[JobType.ASSISTANTDEDIRECTION].label , 
+      {
+        id: 16,
+        sex: SexType.FEMININ,
+        lastName: 'Coulibaly',
+        firstName: 'Nadia',
+        fullName: 'Nadia Coulibaly',
+        job: JobType.ASSISTANTDEDIRECTION,
         status: JobTypeUi[JobType.ASSISTANTDEDIRECTION].status,
       },
-      { 
-        id: 17, 
-        sex:SexTypeUi[SexType.MASCULIN].label, 
-        lastName:'Nouhou', 
-        firstName: 'Ali', 
-        fullName:'Ali Nouhou',
-        job:JobTypeUi[JobType.COACH].label , 
+      {
+        id: 17,
+        sex: SexType.MASCULIN,
+        lastName: 'Nouhou',
+        firstName: 'Ali',
+        fullName: 'Ali Nouhou',
+        job: JobType.COACH,
         status: JobTypeUi[JobType.COACH].status,
       },
     ];

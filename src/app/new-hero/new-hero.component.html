@@ -3,7 +3,7 @@
     <label for="new-hero-sex">Sexe:</label>
     <select #sex id="new-hero-sex">
         <option value="">--Choississez une option--</option>
-        <option value="{{sexType.FEMININ}}" >{{sexTypeUi[sexType.FEMININ].label}}</option>
+        <option value="{{sexType.FEMININ}}">{{sexTypeUi[sexType.FEMININ].label}}</option>
         <option value="{{sexType.MASCULIN}}">{{sexTypeUi[sexType.MASCULIN].label}}</option>
     </select>
     <label for="new-hero-lastName">Nom: </label>
@@ -13,6 +13,7 @@
     <label for="new-hero-job">Fonction: </label>
     <select #job id="new-hero-job">
         <option value="">--Choississez une option--</option>
+        <option value="{{jobType.DG}}">{{jobTypeUi[jobType.DG].label}}</option>
         <option value="{{jobType.COMPTABLE}}">{{jobTypeUi[jobType.COMPTABLE].label}}</option>
         <option value="{{jobType.COACH}}">{{jobTypeUi[jobType.COACH].label}}</option>
         <option value="{{jobType.COMMUNICATION}}">{{jobTypeUi[jobType.COMMUNICATION].label}}</option>

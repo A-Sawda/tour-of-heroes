@@ -79,7 +79,7 @@ export class HeroService {
     );
   }
 
-  addHeroError(){
+  addHeroError() {
     this.log('Veuillez remplir tous les champs pour ajouter un employé')
   }
 

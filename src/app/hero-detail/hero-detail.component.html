@@ -2,19 +2,29 @@
 
     <h2>{{hero.lastName | uppercase}} Détails</h2>
     <div>
-        <label for="hero-sex">Sexe de l'employé: </label>
-        <input id="hero-sex" [(ngModel)]="hero.sex" placeholder="sexe">
+        <p>Sexe de l'employé: {{sexTypeUi[hero.sex].label}} </p>
 
-        <label for="hero-lastName">Nom de l'employé: </label>
-        <input id="hero-lastName" [(ngModel)]="hero.lastName" placeholder="nom">
+        <p>Nom de l'employé: {{hero.lastName}}</p>
 
-        <label for="hero-firstName">Prénom de l'employé: </label>
-        <input id="hero-firstName" [(ngModel)]="hero.firstName" placeholder="prénom">
+        <p>Prénom de l'employé: {{hero.firstName}}</p>
 
-        <label for="hero-job">Fonction de l'employé: </label>
-        <input id="hero-job" [(ngModel)]="hero.job" placeholder="fonction">
+        <p>Fonction de l'employé: {{jobTypeUi[hero.job].label}}</p>
+
+        <label for="new-hero-job">Nouvelle Fonction: </label>
+        <select #job id="new-hero-job">
+            <option value="">--Choississez une option--</option>
+            <option value="{{jobType.DG}}">{{jobTypeUi[jobType.DG].label}}</option>
+            <option value="{{jobType.COMPTABLE}}">{{jobTypeUi[jobType.COMPTABLE].label}}</option>
+            <option value="{{jobType.COACH}}">{{jobTypeUi[jobType.COACH].label}}</option>
+            <option value="{{jobType.COMMUNICATION}}">{{jobTypeUi[jobType.COMMUNICATION].label}}</option>
+            <option value="{{jobType.ASSISTANTDEDIRECTION}}">{{jobTypeUi[jobType.ASSISTANTDEDIRECTION].label}}</option>
+            <option value="{{jobType.HOTESSE}}">{{jobTypeUi[jobType.HOTESSE].label}}</option>
+            <option value="{{jobType.MENAGE}}">{{jobTypeUi[jobType.MENAGE].label}}</option>
+            <option value="{{jobType.GARDIEN}}">{{jobTypeUi[jobType.GARDIEN].label}}</option>
+        </select>
+
     </div>
     <button type="button" (click)="goBack()">Retour</button>
-    <button type="button" (click)="save()">Sauvegarder</button>
+    <button type="button" (click)="save(job.value);job.value=''">Sauvegarder</button>
 
 </div>

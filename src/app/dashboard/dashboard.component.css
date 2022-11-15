@@ -38,12 +38,12 @@ a {
     align-self: auto;
 }
 
-.highcharts{
+.highcharts {
     display: flex;
     margin: 5em;
 }
 
-.highcharts div{
+.highcharts div {
     flex: 1;
 }
 

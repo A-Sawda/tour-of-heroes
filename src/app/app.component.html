@@ -1,18 +1,17 @@
 <nav>
-    <h1 style="display: inline;" routerLink="/home">{{title}}</h1> <!-- Angular's interpolation binding syntax -->
-   
-    <a class=" class" routerLink="/dashboard">Tableau de
-        bord</a>
-    <a class=" class" routerLink="/employees">Liste des employés</a>
-    <a class=" class" routerLink="/new-employee">Ajouter un
-        employé</a>
-    <div id="search-component" style="display: inline;flex: 2;align-self: flex-end;">
+    <h1 routerLink="/home">{{title}}</h1> <!-- Angular's interpolation binding syntax -->
 
-        <input #searchBox id="search-box" (input)="search(searchBox.value)" 
-        placeholder="Rechercher un employé par son nom ou prénom..." />
+    <a routerLink="/dashboard">Tableau de
+        bord</a>
+    <a routerLink="/employees">Liste des employés</a>
+    <a routerLink="/new-employee">Ajouter un
+        employé</a>
+    <div id="search-component" style="display: inline;flex: 2;align-self: flex-end;" routerLink="/search-employee">
+
+        <input #searchBox id="search-box" placeholder="Rechercher" disabled />
 
         <ul class="search-result">
-            <li *ngFor="let hero of heroes$ | async">
+            <li *ngFor="let hero of heroes" (click)="searchBox.value='';search(searchBox.value)">
                 <a routerLink="/detail/{{hero.id}}">
                     {{hero.fullName}}
                 </a>

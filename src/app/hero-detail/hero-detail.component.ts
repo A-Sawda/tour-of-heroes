@@ -3,7 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
 import { Location } from '@angular/common';
-import { JobTypeUi } from '../constants/jobTypeUi';
+import { JobType, JobTypeUi } from '../constants/jobTypeUi';
+import { SexType, SexTypeUi } from '../constants/sexTypeUi';
 
 @Component({
   selector: 'app-hero-detail',
@@ -13,6 +14,10 @@ import { JobTypeUi } from '../constants/jobTypeUi';
 export class HeroDetailComponent implements OnInit {
 
   hero?: Hero | undefined;
+  public jobType = JobType;
+  public jobTypeUi = JobTypeUi;
+  public sexType = SexType;
+  public sexTypeUi = SexTypeUi;
 
   constructor(
     private route: ActivatedRoute, /**L’ActivatedRoute contient des informations sur la route vers cette instance de HeroDetailComponent. Ce composant s’intéresse aux paramètres de la route extraite de l’URL. Le paramètre « id » est l’identifiant du héros à afficher. */
@@ -27,17 +32,17 @@ export class HeroDetailComponent implements OnInit {
   getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.heroService.getHero(id)
-      .subscribe(hero => {this.hero = hero; console.log('hero récupéré', hero);});
+      .subscribe(hero => { this.hero = hero; });
   }
 
   goBack(): void {
     this.location.back();
   }
 
-  save(): void {
+  save(job: string): void {
     if (this.hero) {
-      this.hero.fullName=this.hero.firstName + ' ' + this.hero.lastName;
-      this.hero.status=JobTypeUi[this.hero.job].status
+      this.hero.job = job.trim();
+      this.hero.status = JobTypeUi[this.hero.job].status
       this.heroService.updateHero(this.hero)
         .subscribe(() => this.goBack());
     }
