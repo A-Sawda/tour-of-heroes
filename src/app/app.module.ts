@@ -16,7 +16,6 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { NewHeroComponent } from './new-hero/new-hero.component';
-import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +25,7 @@ import { HomeComponent } from './home/home.component';
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
-    NewHeroComponent,
-    HomeComponent
+    NewHeroComponent
   ],
   imports: [
     HttpClientModule,
